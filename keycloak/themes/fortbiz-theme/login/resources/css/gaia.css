@@ -1,0 +1,275 @@
+/*
+    Colors:
+         - primary:#d81b60
+            -light:#ff5c8d
+            -dark :#a00037
+
+ */
+a{
+    text-decoration: none;
+    text-decoration: underline;
+    color: #d81b60;
+}
+
+#gaia-logo{
+    margin: 0 auto;
+    height: 4.5em;
+    width: 11em;
+    background: url("../img/gaia.png") no-repeat;
+    background-size: 11em;
+}
+
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f7fafc;
+}
+
+.alert{
+    width: 100%;
+    height: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: .15em;
+}
+
+.alert-error{
+    border: .08em solid #ce4f4f;
+    background-color: #fff5f5;
+    color: #ce4f4f;
+}
+
+.login-section{
+    background: white;
+    border-radius: .5em;
+    padding: 3em;
+    margin: 0 auto;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    height: 100vh;
+    border-top: solid .7em #d81b60;
+}
+
+.form-group{
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+.control-label{
+    display: block;
+    margin-bottom: .3em;
+}
+
+.control{
+    width: 96.4%;
+    height: 1.2em;
+    padding-left: .2em;
+    padding-right: .2em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border: .1em solid rgb(138, 138, 138);
+    border-radius: 0.25rem;
+}
+
+.btn{
+    width: 100%;
+    height: 2.6em;
+    border: 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+    border-radius: 0.25em;
+}
+
+.btn-primary{
+    height: 2.5em;
+    background-color: #d81b60;
+    color: white;
+}
+
+.checkbox{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.options-wrapper span{
+    margin: 0 auto;
+}
+
+.options-wrapper{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+#kc-registration{
+    text-align: center;
+}
+#kc-info{
+    margin-top: 2em;
+}
+
+#kc-social-providers{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#kc-social-providers ul{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#kc-social-providers ul li{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+    margin-bottom: .50em;
+    border-radius: 0.25em;
+}
+#kc-social-providers ul li a{
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding-top: .70em;
+    height: 1.7em;
+    border-radius: 0.25em;
+    text-align: center;
+}
+
+#zocial-google{
+    color: white;
+    background-color: #4285F4;
+}
+
+#zocial-facebook{
+    background-color: #3b5998;
+    color: white
+}
+
+
+#zocial-google:before{
+    font-family: 'Font Awesome 5 Brands';
+    height: 0%;
+    width: 2em;
+    content: "\f1a0";
+    display: block;
+    border-right: 0.25em solid black;
+    margin-left: 1em;
+}
+
+#zocial-facebook:before{
+    font-family: 'Font Awesome 5 Brands';
+    height: 0%;
+    width: 2em;
+    content: "\f082";
+    display: block;
+    border-right: 0.25em solid black;
+    margin-left: 1em;
+}
+
+
+.kc-dropdown{
+    position: relative;
+}
+
+.kc-dropdown > ul{ 
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    background-color: white;
+    width: 7em;
+    box-shadow: 0px 3px 8px 2px rgba(105,105,105,0.3);
+    border-radius: 0.1em;
+    display: none;
+}
+
+.kc-dropdown > ul:hover {
+    display: block;
+}
+
+.kc-dropdown ul li {
+    display: block;
+}
+
+.kc-dropdown ul li a{
+    display: block;
+    padding-left: 1em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+
+}
+
+.kc-dropdown ul li a:hover{
+    background-color: rgba(105,105,105,0.3);
+}
+
+
+.kc-dropdown > a {
+    text-decoration: none;
+    height: 2em;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    display: inline-block;
+}
+
+
+
+.kc-dropdown > a:hover{
+    background-color:#a00037;
+}
+.kc-dropdown > a:hover + ul{
+    display: block;
+}
+
+.kc-dropdown ul li a{ 
+    text-decoration: none;
+}
+
+
+/* Small (sm) */
+@media (min-width: 640px) { 
+    .login-section{
+        margin-top: 6em;
+        width: 40%;
+        height: auto;
+    }
+ }
+
+/* Medium (md) */
+@media (min-width: 768px) { 
+    .login-section{
+        margin-top: 6em;
+        width: 40%;
+        height: auto;
+    }
+}
+
+/* Large (lg) */
+@media (min-width: 1024px) { 
+    .control{
+        width: 99.5%;
+    }
+    .login-section{
+        margin-top: 6em;
+        width: 30%;
+        height: auto;
+    }
+}
+/* Extra Large (xl) */
+@media (min-width: 1280px) { 
+    .login-section{
+        margin-top: 6em;
+        width: 20em;
+        height: auto;
+    }
+}
