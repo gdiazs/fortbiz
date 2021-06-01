@@ -29,6 +29,7 @@ nb-configuration.xml
 *.orig
 *.rej
 
+solr/
 postgresql/
 keycloak/temp/hsperfdata_jboss
 keycloak/temp/kc-gzip-cache

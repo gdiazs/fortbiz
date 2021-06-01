@@ -203,7 +203,6 @@
                 <configuration>
                     <simpleLog>true</simpleLog>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <context>ROOT</context>
                     <reloadOnUpdate>true</reloadOnUpdate>
                     <synchronization>
                         <extensions>
@@ -266,4 +265,20 @@
             </build>
         </profile>
     </profiles>
+    <repositories>
+        <repository>
+            <id>jaspersoft-third-party</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+        </repository>
+        <repository>
+            <id>jr-ce-snapshots</id>
+            <name>JasperReports CE Snapshots</name>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-snapshots</url>
+        </repository>
+        <repository>
+            <id>jr-ce-releases</id>
+            <name>JasperReports CE Releases</name>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
+        </repository>
+    </repositories>
 </project>
