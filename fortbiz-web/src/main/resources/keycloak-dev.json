@@ -1,0 +1,8 @@
+{
+    "realm": "fortbiz-staging",
+    "auth-server-url": "https://auth.aedeatech.com/auth/",
+    "ssl-required": "external",
+    "resource": "fortbiz-client",
+    "public-client": true,
+    "confidential-port": 0
+}

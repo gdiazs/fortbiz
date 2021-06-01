@@ -1,0 +1,70 @@
+#
+#  Licensed to the Apache Software Foundation (ASF) under one or more
+#  contributor license agreements.  See the NOTICE file distributed with
+#  this work for additional information regarding copyright ownership.
+#  The ASF licenses this file to You under the Apache License, Version 2.0
+#  (the "License"); you may not use this file except in compliance with
+#  the License.  You may obtain a copy of the License at
+#      http://www.apache.org/licenses/LICENSE-2.0
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+#
+
+version: '3.2'
+networks:
+  fortbiz-net:
+services:
+    keycloak:
+      container_name: keycloak-instance
+      image: jboss/keycloak:12.0.2
+      restart: always
+      environment:
+        PROXY_ADDRESS_FORWARDING: 'true'
+        KEYCLOAK_USER: keycloak
+        KEYCLOAK_PASSWORD: keycloak
+        DB_VENDOR: postgres
+        DB_ADDR: db.aedeatech.com
+        DB_USER: CfNU4wyK
+        DB_PASSWORD: 6XexBrqt
+        DB_DATABASE: keycloak_db
+        KEYCLOAK_IMPORT: /tmp/fortbiz-realm.json -Dkeycloak.profile.feature.upload_scripts=enabled
+      ports:
+        - 8082:8080
+      depends_on: [postgres]
+      volumes:
+      - ./keycloak/temp:/tmp/
+      - ./keycloak/themes/fortbiz-theme:/opt/jboss/keycloak/themes/fortbiz-theme
+      networks:
+        - fortbiz-net
+      healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8080/auth/"]
+        interval: 5s
+        timeout: 2s
+        retries: 15
+    postgres:
+      container_name: postgres-instance
+      image: postgres:12
+      restart: always
+      volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+      environment:
+        POSTGRES_PASSWORD: b5xVJwjg
+      ports:
+        - 5432:5432
+      networks:
+        fortbiz-net:
+          aliases:
+            - db.aedeatech.com
+    solr:
+      container_name: solr-instance
+      image: solr:8
+      ports:
+       - "8983:8983"
+      volumes:
+        - ./solr:/var/solr
+      command:
+        - solr-precreate
+        - cabys
