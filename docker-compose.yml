@@ -26,7 +26,7 @@ services:
         KEYCLOAK_USER: keycloak
         KEYCLOAK_PASSWORD: keycloak
         DB_VENDOR: postgres
-        DB_ADDR: db.aedeatech.com
+        DB_ADDR: db.fortbiz.com
         DB_USER: CfNU4wyK
         DB_PASSWORD: 6XexBrqt
         DB_DATABASE: keycloak_db
@@ -57,7 +57,7 @@ services:
       networks:
         fortbiz-net:
           aliases:
-            - db.aedeatech.com
+            - db.fortbiz.com
     solr:
       container_name: solr-instance
       image: solr:8
