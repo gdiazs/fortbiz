@@ -208,7 +208,7 @@
                     <simpleLog>true</simpleLog>
                     <tomeeClassifier>plus</tomeeClassifier>
                     <args>
-                        -Xmx512m -XX:PermSize=256m -Dmp.config.profile=dev -Dtomee.mp.scan=all -Dfortbiz.db.username=SWd33At4 -Dfortbiz.db.password=PL5z3wKB -Dfortbiz.db.url=localhost:5432
+                       -Dmp.config.profile=dev -Dtomee.mp.scan=all -Dfortbiz.db.username=SWd33At4 -Dfortbiz.db.password=PL5z3wKB -Dfortbiz.db.url=localhost:5432
                     </args>
                 </configuration>
             </plugin>

@@ -24,8 +24,8 @@ module.exports = {
     publicPath: "/fortbiz-web",
     devServer: {
         proxy: {
-            "/fortbiz-web/api/*": {
-                target: 'http://localhost:8080/fortbiz-web/',
+            "/fortbiz-web/*": {
+                target: 'http://localhost:8080/',
                 changeOrigin: true
             }
         },
