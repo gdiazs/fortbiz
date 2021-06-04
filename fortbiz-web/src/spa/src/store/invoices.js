@@ -96,59 +96,59 @@ export default {
   },
   actions: {
     addInvoiceHeader(store, header) {
-      return axios.post("/api/invoices", header).then((response) => {
+      return axios.post("/fortbiz-web/api/invoices", header).then((response) => {
         store.commit("addInvoiceHeader", response.data);
         return response;
       });
     },
     fetchInvoices(store, branchId) {
       return axios
-        .get(`/api/branches/v1/${branchId}/invoices`)
+        .get(`/fortbiz-web/api/branches/v1/${branchId}/invoices`)
         .then((response) => {
           store.commit("setInvoices", response.data);
         });
     },
     findInvoice(store, invoiceNumber) {
-      return axios.get(`/api/invoices/${invoiceNumber}`).then((response) => {
+      return axios.get(`/fortbiz-web/api/invoices/${invoiceNumber}`).then((response) => {
         store.commit("setInvoice", response.data);
       });
     },
     deleteInvoiceByNumber(store, invoiceNumber) {
-      return axios.delete(`/api/invoices/${invoiceNumber}`).then(() => {
+      return axios.delete(`/fortbiz-web/api/invoices/${invoiceNumber}`).then(() => {
         store.commit("removeInvoiceByNumber", invoiceNumber);
       });
     },
     saveInvoiceCustomer(store, customer) {
-      return axios.post("/api/customers", customer).then();
+      return axios.post("/fortbiz-web/api/customers", customer).then();
     },
     updateInvoiceCustomer(store, customer) {
-      return axios.put("/api/customers", customer).then();
+      return axios.put("/fortbiz-web/api/customers", customer).then();
     },
     findCustomer(store, identificationNumber) {
       return axios
-        .get(`/api/customers/${identificationNumber}`)
+        .get(`/fortbiz-web/api/customers/${identificationNumber}`)
         .then((response) => {
           store.commit("setCustomer", response.data);
         });
     },
     addInvoiceDetail(store, invoiceDetail) {
-      return axios.post("/api/products/", invoiceDetail).then(() => {
+      return axios.post("/fortbiz-web/api/products/", invoiceDetail).then(() => {
         store.commit("addInvoiceDetail", invoiceDetail);
       });
     },
     updateInvoiceDetail(store, invoiceDetail) {
-      return axios.put("api/products", invoiceDetail).then();
+      return axios.put("/fortbiz-web/api/products", invoiceDetail).then();
     },
     findInvoiceDetail(store, invoiceNumber) {
       return axios
-        .get(`/api/invoices/${invoiceNumber}/items`)
+        .get(`/fortbiz-web/api/invoices/${invoiceNumber}/items`)
         .then((response) => {
           store.commit("addInvoiceDetail", response.data);
         });
     },
     deleteInvoiceDetail(store, item) {
       return axios
-        .delete(`/api/invoices/${item.invoiceNumber}/product/${item.productId}`)
+        .delete(`/fortbiz-web/api/invoices/${item.invoiceNumber}/product/${item.productId}`)
         .then((response) => {
           store.commit("addInvoiceDetail", response.data);
         });
@@ -156,7 +156,7 @@ export default {
     deleteInvoiceCustomer(store, item) {
       return axios
         .delete(
-          `api/customers/${item.customerId}/invoice/${item.invoiceNumber}`
+          `/fortbiz-web/api/customers/${item.customerId}/invoice/${item.invoiceNumber}`
         )
         .then((response) => {
           if (response.status === 200) {
@@ -165,7 +165,7 @@ export default {
         });
     },
     sendInvoiceToHacienda(store, invoiceNumber) {
-      return axios.post(`api/invoices/${invoiceNumber}`).then();
+      return axios.post(`/fortbiz-web/api/invoices/${invoiceNumber}`).then();
     },
   },
 };

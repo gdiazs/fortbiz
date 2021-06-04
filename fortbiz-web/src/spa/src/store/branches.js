@@ -46,29 +46,29 @@ export default {
     },
     actions: {
         addBranch(store, branch){
-           return axios.post('/api/branches/v1', branch).then( response => {
+           return axios.post('/fortbiz-web/api/branches/v1', branch).then( response => {
                 store.commit("addNewBranch", response.data);
             })
         },
         updateBranch(store, branch){
-            return axios.put('/api/branches/v1', branch).then( response => {
+            return axios.put('/fortbiz-web/api/branches/v1', branch).then( response => {
                 store.commit("setUpdatedBranch", response.data);
             })
         },
         fetchBranchesByUserId(store){
             
-            axios.get(`/api/users/${store.rootState.users.accessTokenParsed.sub}/branches`).then( response => {
+            axios.get(`/fortbiz-web/api/users/${store.rootState.users.accessTokenParsed.sub}/branches`).then( response => {
                 store.commit("setBranches", response.data);
             })
         },
         fetchUserBranches(store){
-            return axios.get(`/api/users/${store.rootState.users.accessTokenParsed.sub}/branches`).then( response => {
+            return axios.get(`/fortbiz-web/api/users/${store.rootState.users.accessTokenParsed.sub}/branches`).then( response => {
                 store.commit("setBranches", response.data);
             })
         },
         deleteBranchById(store, branchId){
             
-            return axios.delete(`/api/branches/v1/${branchId}`).then(() => {
+            return axios.delete(`/fortbiz-web/api/branches/v1/${branchId}`).then(() => {
                 store.commit("removeBranchById", branchId);
             });
         }

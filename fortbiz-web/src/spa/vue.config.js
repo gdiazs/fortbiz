@@ -21,9 +21,10 @@ module.exports = {
     chainWebpack: config => {
         config.optimization.splitChunks(false)
     },
+    publicPath: "/fortbiz-web",
     devServer: {
         proxy: {
-            "/api/*": {
+            "/fortbiz-web/api/*": {
                 target: 'http://localhost:8080/fortbiz-web/',
                 changeOrigin: true
             }

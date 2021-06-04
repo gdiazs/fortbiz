@@ -124,7 +124,7 @@ export default {
             formData.append('localization', `${credentials.province}/${credentials.canton}/${credentials.district}` )
             formData.append("brandImage", credentials.brandImage)
 
-            return axios.post('/api/credentials', formData, {
+            return axios.post('/fortbiz-web/api/credentials', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -132,12 +132,12 @@ export default {
 
         },
         fetchCredentialsByUserId(store){
-            axios.get(`/api/users/${store.state.accessTokenParsed.sub}/credentials`).then( response => {
+            axios.get(`/fortbiz-web/api/users/${store.state.accessTokenParsed.sub}/credentials`).then( response => {
                 store.commit("setCredentials", response.data);
             })
         },
         deleteCredentialById(store, userId){
-            return axios.delete(`/api/credentials/${userId}`).then(() => {
+            return axios.delete(`/fortbiz-web/api/credentials/${userId}`).then(() => {
                 store.commit("removeCredentialById", userId);
             })
         },
@@ -156,7 +156,7 @@ export default {
             formData.append('localization', `${credentials.province}/${credentials.canton}/${credentials.district}` )
             formData.append("brandImage", credentials.brandImage)
 
-            return axios.put('/api/credentials', formData, {
+            return axios.put('/fortbiz-web/api/credentials', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -171,30 +171,30 @@ export default {
 
         },
         fetchProvinces(store){
-            return axios.get('/api/addresses/provinces').then(response => {
+            return axios.get('/fortbiz-web/api/addresses/provinces').then(response => {
                 store.commit('setListProvinces' , response.data);
             })
         },
         findCantontsByProvinceId(store, idProvince){
-            return axios.get(`/api/addresses/${idProvince}/cantons`).then(response => {
+            return axios.get(`/fortbiz-web/api/addresses/${idProvince}/cantons`).then(response => {
                 store.commit('setListCantons' , response.data);
             })
         },
         findDistrictsByCantonId(store, data){
-            return axios.get(`/api/addresses/${data.idProvince}/cantons/${data.idCanton}/disctrics`).then(response => {
+            return axios.get(`/fortbiz-web/api/addresses/${data.idProvince}/cantons/${data.idCanton}/disctrics`).then(response => {
                 store.commit('setListDistricts' , response.data);
             })
         },
         verifyUser(store){
-            axios.post('/api/users/verify').then( response => {
+            axios.post('/fortbiz-web/api/users/verify').then( response => {
                 store.commit("setUser", response.data);
             })
         },
         validateCredentials(store, credentialId){
-            return axios.get(`/api/credentials/${credentialId}/validate`);
+            return axios.get(`/fortbiz-web/api/credentials/${credentialId}/validate`);
         },
         findHaciendaActivityByIdentification(store, identificationNumber){
-            return axios.get(`/api/credentials/hacienda-actvities/${identificationNumber}`).then((response) => {
+            return axios.get(`/fortbiz-web/api/credentials/hacienda-actvities/${identificationNumber}`).then((response) => {
                 store.commit("setUserActivities", response.data)
             });
         }

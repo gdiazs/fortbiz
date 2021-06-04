@@ -32,7 +32,7 @@ export default {
   actions: {
     findProductByDescription(store, search){
       if(search){
-        return axios.get("/api/products/cabys", {
+        return axios.get("/fortbiz-web/api/products/cabys", {
           params: {
             search
           }

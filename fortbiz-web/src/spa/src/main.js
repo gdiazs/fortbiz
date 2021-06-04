@@ -44,7 +44,7 @@ Vue.use(VueTheMask)
 Vue.use(VueLogger, options);
 
 let initOptions = {
-    url: isProduction? 'https://auth.aedeatech.com/auth' : 'http://localhost:8082/auth', realm: isProduction ? 'fortbiz-prod' : 'fortbiz', clientId: 'fortbiz-client', onLoad: 'login-required'
+    url: isProduction? 'http://localhost:8082/auth' : 'http://localhost:8082/auth', realm: 'fortbiz', clientId: 'fortbiz-client', onLoad: 'login-required'
 }
 
 let keycloak = Keycloak(initOptions)

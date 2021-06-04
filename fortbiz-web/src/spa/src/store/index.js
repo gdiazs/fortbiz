@@ -71,7 +71,7 @@ export default new Vuex.Store({
             commit('updateBreadCrumb', breadcrumbs)
         },
         getDefaultConfig({commit}){
-            axios.get("/api/config").then((response) => {
+            axios.get("/fortbiz-web/api/config").then((response) => {
                 commit('addConfig', response.data.viewModel);
             })
         }

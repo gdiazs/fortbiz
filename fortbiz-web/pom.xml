@@ -183,7 +183,11 @@
             <version>2.23.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>7.9.1</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>fortbiz-web</finalName>
@@ -203,15 +207,8 @@
                 <configuration>
                     <simpleLog>true</simpleLog>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <reloadOnUpdate>true</reloadOnUpdate>
-                    <synchronization>
-                        <extensions>
-                            <extension>.class</extension>
-                        </extensions>
-                    </synchronization>
                     <args>
-                        -Xmx512m -XX:PermSize=256m -Dmp.config.profile=dev -Dtomee.mp.scan=all
-                        -Dfortbiz.db.username=SWd33At4 -Dfortbiz.db.password=PL5z3wKB -Dfortbiz.db.url=localhost:5432
+                        -Xmx512m -XX:PermSize=256m -Dmp.config.profile=dev -Dtomee.mp.scan=all -Dfortbiz.db.username=SWd33At4 -Dfortbiz.db.password=PL5z3wKB -Dfortbiz.db.url=localhost:5432
                     </args>
                 </configuration>
             </plugin>

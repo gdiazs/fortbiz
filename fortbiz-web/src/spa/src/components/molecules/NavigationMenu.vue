@@ -65,7 +65,7 @@ export default {
               <span class="ml-1">{{ getUsername }}</span>
             </template>
             <b-dropdown-item :href="getOidcUrl + '/account'">Perfil</b-dropdown-item>
-            <b-dropdown-item href="/#/credentials">Configuración de Hacienda</b-dropdown-item>
+            <b-dropdown-item href="/fortbiz-web/#/credentials">Configuración de Hacienda</b-dropdown-item>
             <b-dropdown-item :href="getOidcUrl + '/protocol/openid-connect/logout?redirect_uri=' + getHostUri">Cerrar Sesión</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
